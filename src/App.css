@@ -1,38 +1,181 @@
-.App {
-  text-align: center;
+:root {
+  --header-height: 50px
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* layout */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 9;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-content {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+main {
+  width: 100%;
+}
+
+.link-boxes {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+  padding: 1em;
+  margin-top: var(--header-height);
+  margin-bottom: 100px;
+}
+
+.bottom-menu {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-flow: row nowrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 1em 0;
+  width: 100%;
+}
+
+
+
+/* header */
+header {
+  border-bottom: 1px solid black;
+  background-color: white;
+}
+
+
+/* link box */
+.link-box-content {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  padding: 1em;
+  cursor: pointer;
+}
+.link-box-title {
+  font-size: 1.4em;
+  font-weight: 600;
+  margin-bottom: .4em;
+}
+.link-delete-btn {
+  font-size: 2em;
+  cursor: pointer;
+  opacity: .5;
+}
+.link-delete-btn:hover {
+  opacity: 1;
+}
+
+
+
+
+/* bottom menu */
+.add-link-btn {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
   color: white;
+  width: 3em;
+  height: 3em;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+
+/* modal */
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+}
+.modal-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  padding: 1em;
+}
+.modal-close-btn {
+  position: absolute;
+  right: .6em;
+  top: .6em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-content {
+  background-color: white;
+}
+.modal-close-btn {
+  cursor: pointer;
+}
+.modal h2 {
+  margin-top: 1.4em;
+  margin-bottom: .4em;
+}
+.modal-header {
+  margin-bottom: .4em;
+}
+.modal-title {
+  font-size: 1.4em;
+  font-weight: 600;
+}
+.modal-section {
+  margin-bottom: 1em;
+}
+.modal-section:last-child {
+  margin-bottom: 0;
+}
+.modal span[role=textbox] {
+  outline: none;
+  max-width: 100%;
+  line-height: 1.4em;
+  cursor: pointer;
+}
+
+/* link box modal */
+.link-box-modal .modal-title {
+  border-bottom: 1px solid black;
+}
+.link-box-modal .modal-url {
+  color: rgb(134, 134, 134);
+}
+.link-box-modal .edit-btn {
+  vertical-align: bottom;
+  opacity: .6;
+}
+.link-box-modal .join-btn {
+  width: 100%;
+  padding: .5em;
+  margin: 1em 0;
+}
+
+
+/* add link modal */
+.add-link-modal input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+}
+.add-link-submit-btn {
+  width: 100%;
+  padding: .5em;
+  margin: 1em 0;
 }
